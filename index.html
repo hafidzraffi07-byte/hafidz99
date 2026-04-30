@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Form UMKM Modern | Bakso Pak Hafidz</title>
+    <!-- Tailwind CSS v3 + Font Awesome Icons + Google Fonts (Inter) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <!-- Custom Tailwind config override (warna hijau/biru UMKM) -->
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Animasi fade in untuk container utama */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        /* Transisi smooth untuk hover input & card */
+        .card-hover {
+            transition: all 0.25s ease-in-out;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+        }
+        input, textarea, select {
+            transition: all 0.2s ease;
+        }
+        input:focus, textarea:focus, select:focus {
+            border-color: #2c7a4d;
+            ring: 2px solid #2c7a4d;
+            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+        }
+        .btn-primary {
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        .btn-primary:hover {
+            transform: scale(1.02);
+            background-color: #1e5a3a;
+        }
+        .product-card {
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+        .product-card:hover {
+            border-left-width: 6px;
+            border-left-color: #2c7a4d;
+            background-color: #f9fef9;
+        }
+        body {
+            background: linear-gradient(135deg, #eef5f0 0%, #d9e8dd 100%);
+        }
+    </style>
+</head>
+<body class="py-8 px-4 md:py-12 md:px-6 antialiased">
+
+    <div class="max-w-5xl mx-auto fade-in-up">
+        <!-- Header dengan ilustrasi sederhana -->
+        <div class="text-center mb-8 md:mb-10">
+            <div class="inline-flex items-center justify-center bg-white/70 backdrop-blur-sm rounded-full p-3 shadow-sm mb-4">
+                <i class="fas fa-store text-3xl text-emerald-700"></i>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-extrabold text-gray-800 tracking-tight">📋 Lengkapi Data <span class="text-emerald-700">UMKM</span></h1>
+            <p class="text-gray-600 mt-2 max-w-md mx-auto">Isi profil usahamu dengan detail & produk unggulan ✨</p>
+        </div>
+
+        <!-- Form Utama -->
+        <form id="umkmForm" class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl overflow-hidden border border-white/40">
+            <!-- Header form dengan logo sederhana -->
+            <div class="bg-gradient-to-r from-emerald-700 to-teal-600 px-6 py-4 md:px-8">
+                <div class="flex items-center gap-3 text-white">
+                    <i class="fas fa-utensils text-2xl"></i>
+                    <h2 class="text-xl font-bold tracking-wide">Info Usaha & Pemilik</h2>
+                    <span class="ml-auto text-xs bg-white/20 px-2 py-1 rounded-full">UMKM Tangguh</span>
+                </div>
+            </div>
+
+            <div class="p-6 md:p-8 space-y-8">
+                <!-- 2 Kolom grid untuk informasi dasar UMKM -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Nama UMKM -->
+                    <div class="space-y-1.5">
+                        <label class="flex items-center gap-2 text-gray-700 font-semibold text-sm"><i class="fas fa-tag text-emerald-600"></i> Nama UMKM <span class="text-red-500">*</span></label>
+                        <input type="text" name="namaUmkm" required value="bakso pak hafidz" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent shadow-sm bg-gray-50/50">
+                    </div>
+                    <!-- Nama Pemilik -->
+                    <div class="space-y-1.5">
+                        <label class="flex items-center gap-2 text-gray-700 font-semibold text-sm"><i class="fas fa-user-circle text-emerald-600"></i> Nama Pemilik <span class="text-red-500">*</span></label>
+                        <input type="text" name="namaPemilik" required value="hafidz Raffi Rabbani" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-sm bg-gray-50/50">
+                    </div>
+                    <!-- Alamat Lengkap -->
+                    <div class="space-y-1.5">
+                        <label class="flex items-center gap-2 text-gray-700 font-semibold text-sm"><i class="fas fa-map-marker-alt text-emerald-600"></i> Alamat Lengkap <span class="text-red-500">*</span></label>
+                        <input type="text" name="alamat" required value="jl.cempaka atas" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-sm">
+                    </div>
+                    <!-- No HP / WhatsApp -->
+                    <div class="space-y-1.5">
+                        <label class="flex items-center gap-2 text-gray-700 font-semibold text-sm"><i class="fab fa-whatsapp text-emerald-600"></i> No. HP / WhatsApp <span class="text-red-500">*</span></label>
+                        <input type="tel" name="noHp" required value="081413423152" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-sm">
+                    </div>
+                    <!-- Email (opsional) -->
+                    <div class="space-y-1.5">
+                        <label class="flex items-center gap-2 text-gray-700 font-semibold text-sm"><i class="fas fa-envelope text-emerald-600"></i> Email (opsional)</label>
+                        <input type="email" name="email" value="hafidz.raffi07@gmail.com" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-sm">
+                        <p class="text-xs text-gray-400">Opsional, tapi direkomendasikan</p>
+                    </div>
+                    <!-- Kategori Usaha -->
+                    <div class="space-y-1.5">
+                        <label class="flex items-center gap-2 text-gray-700 font-semibold text-sm"><i class="fas fa-chart-line text-emerald-600"></i> Kategori Usaha <span class="text-red-500">*</span></label>
+                        <select name="kategori" required class="w-full px-4 py-3 border border-gray-200 rounded-xl bg-white focus:ring-2 focus:ring-emerald-500">
+                            <option value="makanan" selected>🍜 Makanan</option>
+                            <option value="minuman">🥤 Minuman</option>
+                            <option value="fashion">👕 Fashion</option>
+                            <option value="kerajinan">🎨 Kerajinan</option>
+                            <option value="jasa">💼 Jasa</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Baris Deskripsi Usaha & Jam Operasional (grid) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-1.5">
+                        <label class="flex items-center gap-2 text-gray-700 font-semibold text-sm"><i class="fas fa-paragraph text-emerald-600"></i> Deskripsi Usaha <span class="text-red-500">*</span></label>
+                        <textarea name="deskripsiUsaha" rows="3" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-sm resize-none">tempat makan bakso sederhana dan enak</textarea>
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="flex items-center gap-2 text-gray-700 font-semibold text-sm"><i class="fas fa-clock text-emerald-600"></i> Jam Operasional <span class="text-red-500">*</span></label>
+                        <input type="text" name="jamOperasional" required value="13.00-20.00" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-sm" placeholder="Contoh: 08.00 - 17.00">
+                        <p class="text-xs text-gray-400">Format: 13.00-20.00 (buka-tutup)</p>
+                    </div>
+                </div>
+
+                <!-- =========== BAGIAN DAFTAR PRODUK (LENGKAP DENGAN NAMA PRODUK, HARGA, DESKRIPSI SINGKAT) =========== -->
+                <div class="border-t border-emerald-100 pt-6 mt-2">
+                    <div class="flex items-center gap-3 mb-5">
+                        <i class="fas fa-boxes text-2xl text-emerald-700"></i>
+                        <h3 class="text-xl font-bold text-gray-800">📦 Daftar Produk Unggulan</h3>
+                        <span class="bg-emerald-100 text-emerald-800 text-xs px-2 py-1 rounded-full font-medium">3 varian</span>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-5 flex items-center gap-1"><i class="fas fa-info-circle"></i> Setiap produk memiliki nama, harga, dan deskripsi singkat (rasa juara)</p>
+
+                    <!-- Container produk dengan grid responsif -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <!-- Produk 1: Bakso Komplit -->
+                        <div class="product-card bg-white/70 border border-gray-100 rounded-xl p-5 shadow-sm transition-all duration-300 hover:shadow-md">
+                            <div class="flex items-start justify-between">
+                                <div class="flex items-center gap-2">
+                                    <i class="fas fa-drumstick-bite text-emerald-600 text-xl"></i>
+                                    <h4 class="font-bold text-gray-800">Produk 1</h4>
+                                </div>
+                                <span class="bg-emerald-50 text-emerald-700 text-[11px] font-semibold px-2 py-0.5 rounded-full">populer</span>
+                            </div>
+                            <div class="space-y-3 mt-3">
+                                <div>
+                                    <label class="text-xs font-semibold text-gray-600 block mb-1"><i class="fas fa-tag"></i> Nama Produk</label>
+                                    <input type="text" name="produk_nama_1" value="bakso komplit" class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-emerald-400 text-sm bg-gray-50">
+                                </div>
+                                <div>
+                                    <label class="text-xs font-semibold text-gray-600 block mb-1"><i class="fas fa-coins"></i> Harga (Rp)</label>
+                                    <div class="relative">
+                                        <span class="absolute left-3 top-2.5 text-gray-500 text-sm">Rp</span>
+                                        <input type="number" name="produk_harga_1" value="10000" class="w-full pl-9 pr-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-emerald-400 text-sm">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="text-xs font-semibold text-gray-600 block mb-1"><i class="fas fa-pen-fancy"></i> Deskripsi Singkat</label>
+                                    <input type="text" name="produk_deskripsi_1" value="rasanya enak" class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-emerald-400 text-sm">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Produk 2: Bakso Beranak -->
+                        <div class="product-card bg-white/70 border border-gray-100 rounded-xl p-5 shadow-sm transition-all duration-300 hover:shadow-md">
+                            <div class="flex items-start justify-between">
+                                <div class="flex items-center gap-2">
+                                    <i class="fas fa-egg text-emerald-600 text-xl"></i>
+                                    <h4 class="font-bold text-gray-800">Produk 2</h4>
+                                </div>
+                                <span class="bg-amber-50 text-amber-700 text-[11px] font-semibold px-2 py-0.5 rounded-full">best seller</span>
+                            </div>
+                            <div class="space-y-3 mt-3">
+                                <div>
+                                    <label class="text-xs font-semibold text-gray-600 block mb-1"><i class="fas fa-tag"></i> Nama Produk</label>
+                                    <input type="text" name="produk_nama_2" value="bakso beranak" class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-emerald-400 text-sm bg-gray-50">
+                                </div>
+                                <div>
+                                    <label class="text-xs font-semibold text-gray-600 block mb-1"><i class="fas fa-coins"></i> Harga (Rp)</label>
+                                    <div class="relative">
+                                        <span class="absolute left-3 top-2.5 text-gray-500 text-sm">Rp</span>
+                                        <input type="number" name="produk_harga_2" value="15000" class="w-full pl-9 pr-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-emerald-400 text-sm">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="text-xs font-semibold text-gray-600 block mb-1"><i class="fas fa-pen-fancy"></i> Deskripsi Singkat</label>
+                                    <input type="text" name="produk_deskripsi_2" value="rasanya enak" class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-emerald-400 text-sm">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Produk 3: Bakso Mercon -->
+                        <div class="product-card bg-white/70 border border-gray-100 rounded-xl p-5 shadow-sm transition-all duration-300 hover:shadow-md">
+                            <div class="flex items-start justify-between">
+                                <div class="flex items-center gap-2">
+                                    <i class="fas fa-pepper-hot text-emerald-600 text-xl"></i>
+                                    <h4 class="font-bold text-gray-800">Produk 3</h4>
+                                </div>
+                                <span class="bg-red-50 text-red-600 text-[11px] font-semibold px-2 py-0.5 rounded-full">pedas nendang</span>
+                            </div>
+                            <div class="space-y-3 mt-3">
+                                <div>
+                                    <label class="text-xs font-semibold text-gray-600 block mb-1"><i class="fas fa-tag"></i> Nama Produk</label>
+                                    <input type="text" name="produk_nama_3" value="bakso mercon" class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-emerald-400 text-sm bg-gray-50">
+                                </div>
+                                <div>
+                                    <label class="text-xs font-semibold text-gray-600 block mb-1"><i class="fas fa-coins"></i> Harga (Rp)</label>
+                                    <div class="relative">
+                                        <span class="absolute left-3 top-2.5 text-gray-500 text-sm">Rp</span>
+                                        <input type="number" name="produk_harga_3" value="17000" class="w-full pl-9 pr-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-emerald-400 text-sm">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="text-xs font-semibold text-gray-600 block mb-1"><i class="fas fa-pen-fancy"></i> Deskripsi Singkat</label>
+                                    <input type="text" name="produk_deskripsi_3" value="rasanya enak" class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-emerald-400 text-sm">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- tambahan catatan untuk metadata daftar produk (bentuk ringkasan) -->
+                    <div class="mt-5 text-xs text-gray-400 bg-gray-50 p-3 rounded-xl flex items-center gap-2">
+                        <i class="fas fa-list-ul text-emerald-500"></i>
+                        <span>Daftar produk lengkap: bakso komplit, bakso beranak, bakso mercon — harga sudah termasuk PPN rasa mantap.</span>
+                    </div>
+                </div>
+
+                <!-- Tombol action group -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-end pt-4 border-t border-gray-100 mt-4">
+                    <button type="reset" class="px-6 py-3 rounded-xl border border-gray-300 text-gray-700 font-medium bg-white hover:bg-gray-50 transition-all flex items-center justify-center gap-2 shadow-sm">
+                        <i class="fas fa-undo-alt"></i> Reset Form
+                    </button>
+                    <button type="submit" class="btn-primary px-8 py-3 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold shadow-md hover:shadow-lg flex items-center justify-center gap-2 transition">
+                        <i class="fas fa-save"></i> Simpan Data UMKM
+                    </button>
+                </div>
+                <p class="text-center text-xs text-gray-400 mt-4">* Data akan tersimpan secara lokal (simulasi) — lengkapi semua informasi dengan benar.</p>
+            </div>
+        </form>
+
+        <!-- footer micro interaksi -->
+        <div class="text-center text-sm text-gray-600 mt-8 flex justify-center gap-4">
+            <div class="bg-white/50 backdrop-blur-sm px-4 py-2 rounded-full inline-flex gap-3 items-center text-gray-700 shadow-sm">
+                <i class="fas fa-mobile-alt text-emerald-600"></i>
+                <span>Responsif & Mobile Friendly</span>
+                <span class="w-1 h-1 bg-gray-400 rounded-full"></span>
+                <i class="fas fa-leaf text-emerald-600"></i>
+                <span>Warna Hijau UMKM</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript sederhana untuk aksi submit (simulasi sukses) + animasi feedback -->
+    <script>
+        (function() {
+            const form = document.getElementById('umkmForm');
+            
+            // Fungsi menampilkan notifikasi modern (toast)
+            function showToast(message, type = 'success') {
+                // buat elemen toast jika belum ada
+                let toastContainer = document.querySelector('.toast-custom-container');
+                if (!toastContainer) {
+                    toastContainer = document.createElement('div');
+                    toastContainer.className = 'toast-custom-container fixed bottom-5 right-5 z-50 flex flex-col gap-2';
+                    document.body.appendChild(toastContainer);
+                }
+                
+                const toast = document.createElement('div');
+                toast.className = `flex items-center gap-3 bg-white shadow-xl rounded-xl px-5 py-3 border-l-8 transform transition-all duration-300 animate-bounceIn ${
+                    type === 'success' ? 'border-emerald-500' : 'border-amber-500'
+                }`;
+                const icon = type === 'success' ? '<i class="fas fa-check-circle text-emerald-600 text-xl"></i>' : '<i class="fas fa-exclamation-triangle text-amber-500 text-xl"></i>';
+                toast.innerHTML = `
+                    ${icon}
+                    <span class="text-gray-800 font-medium text-sm">${message}</span>
+                    <button class="ml-3 text-gray-400 hover:text-gray-600"><i class="fas fa-times"></i></button>
+                `;
+                toastContainer.appendChild(toast);
+                
+                // tombol close di dalam toast
+                const closeBtn = toast.querySelector('button');
+                closeBtn.addEventListener('click', () => {
+                    toast.remove();
+                });
+                
+                // auto hilang setelah 4 detik
+                setTimeout(() => {
+                    if (toast && toast.parentNode) toast.remove();
+                }, 4000);
+            }
+            
+            // animasi fade in untuk toast ekstra
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes bounceIn {
+                    0% { opacity: 0; transform: translateX(40px); }
+                    80% { transform: translateX(-5px); }
+                    100% { opacity: 1; transform: translateX(0); }
+                }
+                .animate-bounceIn {
+                    animation: bounceIn 0.3s ease forwards;
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // handle submit form
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Ambil semua nilai untuk ditampilkan di console sekaligus validasi minimal required (hanya untuk nama, alamat dll, tetapi produk tidak required secara strict)
+                const namaUMKM = form.querySelector('[name="namaUmkm"]').value.trim();
+                const pemilik = form.querySelector('[name="namaPemilik"]').value.trim();
+                const alamat = form.querySelector('[name="alamat"]').value.trim();
+                const noHp = form.querySelector('[name="noHp"]').value.trim();
+                const kategori = form.querySelector('[name="kategori"]').value;
+                const jamOperasional = form.querySelector('[name="jamOperasional"]').value.trim();
+                
+                if (!namaUMKM || !pemilik || !alamat || !noHp || !jamOperasional || !kategori) {
+                    showToast('⚠️ Harap lengkapi data wajib (Nama UMKM, Pemilik, Alamat, No HP, Jam Operasional)!', 'error');
+                    return;
+                }
+                
+                // ambil data produk secara ringkas untuk ditampilkan di toast sukses
+                const produk1 = form.querySelector('[name="produk_nama_1"]').value || '-';
+                const produk2 = form.querySelector('[name="produk_nama_2"]').value || '-';
+                const produk3 = form.querySelector('[name="produk_nama_3"]').value || '-';
+                const harga1 = form.querySelector('[name="produk_harga_1"]').value || 0;
+                const harga2 = form.querySelector('[name="produk_harga_2"]').value || 0;
+                const harga3 = form.querySelector('[name="produk_harga_3"]').value || 0;
+                
+                // buat object data untuk ditampilkan di console (untuk developer / debug)
+                const formData = {
+                    nama_umkm: namaUMKM,
+                    pemilik: pemilik,
+                    alamat: alamat,
+                    no_hp: noHp,
+                    email: form.querySelector('[name="email"]').value,
+                    deskripsi: form.querySelector('[name="deskripsiUsaha"]').value,
+                    kategori: kategori,
+                    jam_operasional: jamOperasional,
+                    daftar_produk: [
+                        { nama: produk1, harga: harga1, deskripsi: form.querySelector('[name="produk_deskripsi_1"]').value },
+                        { nama: produk2, harga: harga2, deskripsi: form.querySelector('[name="produk_deskripsi_2"]').value },
+                        { nama: produk3, harga: harga3, deskripsi: form.querySelector('[name="produk_deskripsi_3"]').value }
+                    ]
+                };
+                
+                console.log('✅ Data UMKM tersimpan (simulasi):', formData);
+                
+                // tampilkan notifikasi ringkasan
+                showToast(`✨ Berhasil! Data "${namaUMKM}" (${kategori}) telah disimpan. ${produk1}, ${produk2}, ${produk3} siap dipromosikan!`, 'success');
+                
+                // tambahan efek 'berhasil' pada form (soft highlight)
+                const formContainer = document.querySelector('#umkmForm');
+                formContainer.style.transition = 'box-shadow 0.2s';
+                formContainer.style.boxShadow = '0 0 0 2px #2c7a4d, 0 20px 25px -5px rgba(0,0,0,0.1)';
+                setTimeout(() => {
+                    formContainer.style.boxShadow = '';
+                }, 800);
+            });
+            
+            // Reset form dengan konfirmasi lembut
+            const resetBtn = form.querySelector('button[type="reset"]');
+            if (resetBtn) {
+                resetBtn.addEventListener('click', (e) => {
+                    // reset bawaan browser akan mengosongkan form ke nilai awal? tapi karena ada value statis di HTML, reset akan kembali ke nilai default asli (value dari atribut). 
+                    // Karena kita menggunakan value asli dari HTML saat load, reset mengembalikan ke keadaan awal ( data contoh sesuai soal )
+                    // Tapi biarkan juga muncul notifikasi bahwa form direset ke data awal UMKM
+                    setTimeout(() => {
+                        showToast('🔄 Form direset ke data awal UMKM "bakso pak hafidz"', 'success');
+                    }, 30);
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
